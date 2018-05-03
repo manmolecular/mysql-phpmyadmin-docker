@@ -16,7 +16,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
-     - "8001:80"
+     - "8080:80"
     environment:
      - PMA_USER = user
      - PMA_PASSWORD = password
