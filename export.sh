@@ -2,7 +2,7 @@
 # Export db from docker-compose
 set -e
 
-echo "Export db ..."
+echo "Database export ..."
 _os="`uname`"
 _now=$(date +"%m_%d_%Y")
 _file="sqldumps/data_$_now.sql"
