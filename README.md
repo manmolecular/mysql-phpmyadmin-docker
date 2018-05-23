@@ -1,23 +1,26 @@
 # mysql-phpmyadmin-docker  
-Phpmyadmin adress:
+## Phpmyadmin adress:
 ```
 localhost:8080
 ```
-Phpmyadmin:  
+## Phpmyadmin:  
 root:  
 ```
 login: root
 pass: rootpass
 ```
-Start container:  
+## Start container:  
 ```
-sudo docker-compose up
+docker-compose up
 ```
-Export current database:
+(you will need `sudo` if your user account is not in `docker` group on your system)  
+## Export current database:
 ```
 ./export.sh
 ```
-Connect to mysql:
+## Connect to mysql:
 ```
 ./connect.sh
 ```
+## Load create database sql-script:
+Put your script in `sqldumps` dir before running `docker-compose`
