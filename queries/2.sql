@@ -8,4 +8,4 @@ count(bus_driver.id) FROM bus_driver
 
 WHERE bus_driver.sign_date != 0
 
-GROUP BY bus_driver.sign_date
+GROUP BY bus_driver.sign_date;

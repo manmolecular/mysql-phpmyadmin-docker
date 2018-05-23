@@ -9,4 +9,4 @@ WHERE schedule.route_id != 0
 
 GROUP BY route.num
 ORDER BY count(schedule.stop_point_id) DESC
-LIMIT 1
+LIMIT 1;
