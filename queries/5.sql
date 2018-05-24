@@ -4,27 +4,26 @@
 -- Вывод: Предыдущий остановочный пункт, Текущий остановочный пункт, Следующий 
 -- остановочный пункт
 
-SET @curr_id = 3;
-SET @undefined_val = 'Отсутствует';
-
 -- Base
 SELECT 
+    stop_point.id AS cur,
     IFNULL (
     (
     SELECT stop_point.name FROM stop_point
     WHERE stop_point.id = (
         SELECT MAX(stop_point.id) 
         FROM stop_point 
-        WHERE stop_point.id < @curr_id)
+        WHERE stop_point.id < cur
+        LIMIT 1
+        )
     ), 
-    @undefined_val), 
+    'Отсутствует'), 
 
-    IFNULL (
     (
         SELECT stop_point.name FROM stop_point
-        WHERE stop_point.id = @curr_id
-    ), 
-    @undefined_val),
+        WHERE stop_point.id = cur
+        LIMIT 1
+    ),
 
     IFNULL (
     (
@@ -32,6 +31,9 @@ SELECT
         WHERE stop_point.id = (
             SELECT MIN(stop_point.id) 
             FROM stop_point 
-            WHERE stop_point.id > @curr_id)
+            WHERE stop_point.id > cur
+            LIMIT 1
+            )
     ), 
-    @undefined_val)
+    'Отсутствует')
+from stop_point 
