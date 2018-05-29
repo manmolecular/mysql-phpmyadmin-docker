@@ -4,8 +4,8 @@
 -- Вывод: Год, Месяц, Количество ознакомившихся с путевым листом.
 
 SELECT YEAR(bus_driver.sign_date), MONTH(bus_driver.sign_date), 
-count(bus_driver.id) FROM bus_driver
+COUNT(bus_driver.id) FROM bus_driver
 
-WHERE bus_driver.sign_date != 0
+WHERE bus_driver.sign_date IS NOT NULL
 
-GROUP BY bus_driver.sign_date;
+GROUP BY YEAR(bus_driver.sign_date), MONTH(bus_driver.sign_date);
